@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">WEBD 6201 Assignment 4</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="./index.html"
+                ><i class="fa fa-home text-white"></i> Home</a
+              >
+            </li>
+           
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./services.html"
+                ><i class="fa fa-bell text-white"></i> Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.html"
+                ><i class="fa fa-info-circle text-white"></i> About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                ><i
+                  class="fa fa-phone text-white"
+                  onclick="businessContactEvent()"
+                ></i>
+                Business Contacts</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./products.html"
+                ><i class="fa fa-info-circle text-white"></i>Projects</a
+              >
+            </li>
+           
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./contact.html"
+                ><i class="fa fa-phone text-white"></i> Contact Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html"
+                ><i class="fa fa-group text-white"></i> Login</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>Stylish HTML Page</title>
+        <style>
+          body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+          }
+          .react-parallax-content {
+            position: relative;
+          }
+          .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 5rem 0;
+          }
+          .container {
+            margin: 0 auto;
+            padding: 4rem 0;
+            max-width: 1200px;
+          }
+          h1 {
+            font-size: 4rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 0;
+          }
+          h2 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 0;
+          }
+          .Typewriter__cursor {
+            display: inline-block;
+            margin-left: 5px;
+            animation: blink 1s infinite;
+          }
+          .text-light {
+            color: rgba(255, 255, 255, 0.8);
+          }
+          .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: none;
+            background-color: #ffffff;
+            color: #212121;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-radius: 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+          }
+          .btn:hover {
+            background-color: #212121;
+            color: #ffffff;
+          }
+          body {
+        background-image: url("./Images/BackGroudImage.png");
+        background-size: cover;
+      }
+          .scroll-down-arrow {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            animation: bounce 2s infinite;
+          }
+          @keyframes blink {
+            0% {
+              opacity: 0;
+            }
+            50% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 0;
+            }
+          }
+          @keyframes bounce {
+            0% {
+              transform: translate(0, 0);
+            }
+            50% {
+              transform: translate(0, 1rem);
+            }
+            100% {
+              transform: translate(0, 0);
+            }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="react-parallax-content">
+          <div class="hero-content fullscreen">
+            <div class="container my-auto">
+              <div class="row">
+                <div class="col-lg-12 text-center order-1 order-lg-0">
+                  <h1 class="text-8 text-white fw-400 mb-0 text-uppercase" style="color: purple;">Welcome</h1>
+                  <h2 class="text-23 fw-600 text-uppercase mb-0">
+                    <div class="Typewriter" data-testid="typewriter-wrapper">
+                      <span class="Typewriter__wrapper">To Our Site!</span>
+                      <span class="Typewriter__cursor">|</span>
+                    </div>
+                  </h2>
+                  <p class="text-5 text-light" style="border: 2px solid purple; padding: 10px;" >Our website offers a wide range of resources, including tutorials, forums, and projects that will help you build your coding skills and knowledge. We believe that programming is a language that can help people communicate, create and solve problems, and our goal is to make this language accessible to everyone.
+                    We invite you to join our community, connect with other like-minded individuals, and explore the world of programming with us. Let's embark on a journey of learning and discovery together!”
+                    </p>
+                  
+    
+  
+  
+ 
+
+  </body>
+  <script>
+    function businessContactEvent(e) {
+       console.log(typeof localStorage.getItem("data"))
+      if (typeof localStorage.getItem("data")=="string") {
+        window.location.href='business-contacts.html'
+
+  
+       } else {
+ 
+        window.location.href = "login.html";
+
+      }
+     }
+    // document.addEventListener("DOMContentLoaded", function () {
+
+    //   if (!localStorage.getItem("data")) {
+    //     window.location.href = "login.html";
+    //   } else {
+    //     window.location.href='index.html'
+
+    //   }
+
+
+    // });
+
+    function showError() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      if (username === "") {
+        document.querySelector(".popup").style.display = "block";
+        document.querySelector(".popup").innerHTML =
+          "Please Enter Name First!  ";
+        setTimeout(function () {
+          document.querySelector(".popup").style.display = "none";
+        }, 5000);
+      } else if (password === "") {
+        document.querySelector(".popup").style.display = "block";
+        document.querySelector(".popup").innerHTML = "Enter Password!";
+        setTimeout(function () {
+          document.querySelector(".popup").style.display = "none";
+        }, 5000);
+      } else if (
+        username !== localStorage.getItem("username") &&
+        password !== localStorage.getItem("password")
+      ) {
+        alert("Incorrect Credentials REgister FIrst Or Try Again");
+      } else {
+        window.location.href = "main.html";
+      }
+    }
+  </script>
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="./Content/app.css" />
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./node_modules/font-awesome/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./Scripts/app.js"></script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
+      integrity="sha512-ypu86CpB91FA98c0qip3ZjF9xfLUNJVmUjv6I3apD+3Ng6zzCHdiFh5l6U5n5Uc9RdMnWzgShGsS5fHPB/2xrA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container-fluid mt-4">
+      <div class="row">
+        <div class="col-12 mb-3">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#createContactModal"
+            onclick="window.location.href='create-contact.html'"
+          >
+            Create Contact
+          </button>
+        </div>
+        <div class="col-12">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="contact-list">
+                <td class="id"></td>
+                <td class="name"></td>
+                <td class="email"></td>
+                <td class="phone"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="createContactModal"
+      tabindex="-1"
+      aria-labelledby="createContactModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="createContactModalLabel">
+              Create Contact
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- contact form will be added here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"
+      integrity="sha512-UZ9/Nrt4eL/xzqrnQFElT6yebw6TFL1/nNroQ2DymWZoEnjvOxN/VRMHYz/0W0L8rflrj5F5ldm88SPgZfM8g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      // deleteButtons.forEach((btn) => {
+      //   btn.addEventListener("click", async (e) => {
+      //     const id =
+      //       e.target.parentNode.parentNode.querySelector(".id").innerText;
+      //     const { data } = await axios.delete(
+      //       `http://localhost:5000/contact/${id}`
+      //     );
+
+      //     window.location.href = "business-contacts.html";
+      //   });
+      // });
+
+      // editButton.forEach((btn) => {
+      //   btn.addEventListener("click", async (e) => {
+      //     const id =
+      //       e.target.parentNode.parentNode.querySelector(".id").innerText;
+      //     window.location.href = `edit-contact.html?id=${id}`;
+      //   });
+      // });
+
+      //   editButton.addEventListener("click", () => {
+      //     // Handle edit button click
+      //   });
+      async function getContactList() {
+        const { data } = await axios.get("http://localhost:5000/contact");
+        console.log("🚀 ~ file: business-contacts.html:140 ~ getContactList ~ data:", data)
+        const tbody = document.querySelector("table tbody");
+
+      
+          const tableRows = data.map((contact) => {
+            const row = document.createElement("tr");
+            const nameCell = document.createElement("td");
+            const emailCell = document.createElement("td");
+            const phoneCell = document.createElement("td");
+            const idCell = document.createElement("td");
+            const editButton = document.createElement("button");
+            const deleteButton = document.createElement("button");
+
+            editButton.innerText = "Edit";
+            deleteButton.innerText = "Delete";
+
+            nameCell.innerText = contact.name;
+            emailCell.innerText = contact.email;
+            phoneCell.innerText = contact.number;
+            idCell.innerText = contact._id;
+
+            deleteButton.addEventListener("click", async (e) => {
+              const id = idCell.innerText;
+              const { data } = await axios.delete(
+                `http://localhost:5000/contact/${id}`
+              );
+
+              window.location.href = "business-contacts.html";
+            });
+            editButton.addEventListener("click", async (e) => {
+              const id = idCell.innerText;
+              window.location.href = `edit-contact.html?id=${id}`;
+            });
+
+            row.appendChild(nameCell);
+            row.appendChild(emailCell);
+            row.appendChild(phoneCell);
+            row.appendChild(idCell);
+            row.appendChild(editButton);
+            row.appendChild(deleteButton);
+
+            return row;
+          });
+
+          tbody.append(...tableRows);
+         
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        getContactList();
+      });
+    </script>
+  </body>
+</html>
